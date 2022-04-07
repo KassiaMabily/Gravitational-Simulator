@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 double G = 6.674184 * Math.Pow(10, -11);
 
@@ -59,7 +60,7 @@ class Universe {
         FileStream myFile = new FileStream(file, FileMode.OpenOrCreate, FileAccess.Write);
         StreamWriter sw = new StreamWriter(myFile, Encoding.UTF8);
 
-        string firstLine = String.Format("{0};{1}", celestialBodies.Count, i);
+        string firstLine = String.Format("{0};{1}", celestialBodies.Count, iteration);
         sw.WriteLine(firstLine);
 
         for(int i = 0; i < celestialBodies.Count; i++) {

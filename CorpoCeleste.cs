@@ -6,8 +6,8 @@ class CelestialBody {
 
     private double posX;
     private double posY;
-    private float mass;
-    private float radius;
+    private double mass;
+    private double radius;
     private double velX;
     private double velY;
 
@@ -25,8 +25,8 @@ class CelestialBody {
     public CelestialBody(string line) {
         string[] data = line.Split(";");
 
-        name = float.Parse(data[0]);
-        mass = float.Parse(data[1]);
+        name = data[0];
+        mass = double.Parse(data[1]);
         radius = double.Parse(data[2]);
         posX = double.Parse(data[3]);
         posY = double.Parse(data[4]);
@@ -34,23 +34,23 @@ class CelestialBody {
         velY = double.Parse(data[6]);
     }
 
-    public float getMass() {
+    public double getMass() {
         return mass;
     }
 
-    public float getPosX() {
+    public double getPosX() {
         return posX;
     }
 
-    public float getPosY() {
+    public double getPosY() {
         return posY;
     }
 
-    public float getVelX() {
+    public double getVelX() {
         return velX;
     }
 
-    public float getVelY() {
+    public double getVelY() {
         return velY;
     }
 
@@ -70,7 +70,7 @@ class CelestialBody {
         velY = y;
     }
 
-    public void formatOutputFile() {
+    public string formatOutputFile() {
         return String.Format("{0};{1};{2};{3};{4};{5};{5}", name, mass, radius, posX, posY, velX, velY);
     }
 
