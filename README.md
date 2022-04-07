@@ -1,5 +1,5 @@
 <h3 align="center">
-    ReactJS-Slide-Puzzle
+    Gravitational Simulator
 </h3>
 
 <p align="center">
