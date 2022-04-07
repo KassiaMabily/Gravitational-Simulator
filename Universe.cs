@@ -57,12 +57,17 @@ class Universe {
     {
         string file = "outputBodies.txt"; 
 
-        FileStream myFile = new FileStream(file, FileMode.OpenOrCreate, FileAccess.Write);
+        FileStream myFile = new FileStream(file, FileMode.Append, FileAccess.Write);
         StreamWriter sw = new StreamWriter(myFile, Encoding.UTF8);
 
-        string firstLine = String.Format("{0};{1}", celestialBodies.Count, iteration);
-        sw.WriteLine(firstLine);
+        if(iteration == 0)
+        {
+            string firstLine = String.Format("{0};{1}", celestialBodies.Count, iteration);
+            sw.WriteLine(firstLine);
+        }
 
+
+        sw.WriteLine(String.Format("************ Interacao {0} ************", (iteration + 1)));
         for(int i = 0; i < celestialBodies.Count; i++) {
             sw.WriteLine(celestialBodies[i].formatOutputFile());
         }
