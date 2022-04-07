@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-double G = 6.674184 * Math.Pow(10, -11);
-
 class Universe {
+
+    double G = 6.674184 * Math.Pow(10, -11);
 
     private int numberCelestialBodies;
     private int numberIterations;
@@ -91,10 +91,10 @@ class Universe {
         double Ay = Fy / body.getMass();
 
         double Vx = body.getVelX() + (Ax * time);
-        double Vy = body.getVely() + (Ay * time);
+        double Vy = body.getVelY() + (Ay * time);
 
         double Sx = body.getPosX() + body.getVelX() + ((Ax * Math.Pow(time, 2)) / 2);
-        double Sy = body.getPosY() + body.getVely() + ((Ay * Math.Pow(time, 2)) / 2);
+        double Sy = body.getPosY() + body.getVelY() + ((Ay * Math.Pow(time, 2)) / 2);
         
         body.setPosX(Sx);
         body.setPosY(Sy);
@@ -133,7 +133,7 @@ class Universe {
                     }
                 }
 
-                saveCelestialBodies(celestialBodies, i);
+                saveCelestialBodies(celestialBodies, iteration);
             }
         }
     }
