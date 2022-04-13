@@ -5,7 +5,7 @@ using System.Text;
 
 class Universe {
 
-    double G = 6.67408 * Math.Pow(10, -11);
+    double G = 6.6740184 * Math.Pow(10, -11);
 
     private int numberCelestialBodies;
     private int numberIterations;
@@ -57,7 +57,7 @@ class Universe {
     {
         string file = "outputBodies.txt"; 
 
-        FileStream myFile = new FileStream(file, FileMode.Append, FileAccess.Write);
+        FileStream myFile = new FileStream(file, FileMode.Open, FileAccess.Write);
         StreamWriter sw = new StreamWriter(myFile, Encoding.UTF8);
 
 
@@ -71,41 +71,58 @@ class Universe {
 
     }
 
+    public List<string> WriteIterationBodies(List<string> output, List<CelestialBody> bodies)
+    {
+        foreach(var body in bodies)
+        {
+            output.Add(body.formatOutputFile());
+        }
+
+        return output;
+    }
+
     public double calculateEuclidienneDistance(CelestialBody body1, CelestialBody body2) 
     {
         return Math.Sqrt(Math.Pow((body1.getPosX() - body2.getPosX()), 2) + Math.Pow((body1.getPosY() - body2.getPosY()),2));
     }
-    
-    public double calculateGravitationalForce(CelestialBody body1, CelestialBody body2) 
-    {
-        double r = calculateEuclidienneDistance(body1, body2);
-        double force = (G * body1.getMass() * body2.getMass()) / Math.Pow(r, 2);
 
-        return force;
+
+    public void ApplyForceToBodies(List<CelestialBody> bodies) 
+    {
+        foreach(var body in bodies)
+        {
+            double Ax = body.getFx() / body.getMass();
+            double Ay = body.getFy() / body.getMass();
+
+            double Vx = body.getVelX() + (Ax * time);
+            double Vy = body.getVelY() + (Ay * time);
+
+            double Sx = body.getPosX() + (body.getVelX() * time) + ((Ax  / 2) * Math.Pow(time, 2));
+            double Sy = body.getPosY() + (body.getVelY() * time) + ((Ay / 2) * Math.Pow(time, 2));
+            
+            body.setPosX(Sx);
+            body.setPosY(Sy);
+            body.setVelX(Vx);
+            body.setVelY(Vy);
+        } 
     }
 
-    public void applyForce(CelestialBody body, double Fx, double Fy) 
+    public void CleanForces(List<CelestialBody> bodies) 
     {
-        double Ax = Fx / body.getMass();
-        double Ay = Fy / body.getMass();
-
-        double Vx = body.getVelX() + (Ax * time);
-        double Vy = body.getVelY() + (Ay * time);
-
-        double Sx = body.getPosX() + (body.getVelX() * time) + ((Ax  / 2) * Math.Pow(time, 2));
-        double Sy = body.getPosY() + (body.getVelY() * time) + ((Ay / 2) * Math.Pow(time, 2));
-        
-        body.setPosX(Sx);
-        body.setPosY(Sy);
-        body.setVelX(Vx);
-        body.setVelY(Vy);
+        foreach(var body in bodies)
+        {
+            body.setF(0.0f);
+            body.setFx(0.0f);
+            body.setFy(0.0f);
+        } 
     }
 
-    public void ApplyGravityForces(CelestialBody body1, CelestialBody body2) 
+    public void CalculateGravitationalForce(CelestialBody body1, CelestialBody body2) 
     {
-        double F = calculateGravitationalForce(body1, body2);
 
         double r = calculateEuclidienneDistance(body1, body2);
+        double F = (G * body1.getMass() * body2.getMass()) / Math.Pow(r, 2);
+
         double rx = (body1.getPosX() - body2.getPosX());
         double ry = (body1.getPosY() - body2.getPosY());
 
@@ -117,8 +134,13 @@ class Universe {
         double Fx =  F * (rx / r);
         double Fy = F * (ry / r);
 
-        applyForce(body1, Fx, Fy);
-        applyForce(body2, Fx * (-1), Fy * (-1));
+        body1.setF(body1.getF() + F);
+        body1.setFx(body1.getFx() + Fx);
+        body1.setFy(body1.getFy() + Fy);
+
+        body2.setF(body2.getF() + (F * (-1)));
+        body2.setFx(body2.getFx() + (Fx * (-1)));
+        body2.setFy(body2.getFy() + (Fy * (-1)));
     }
     
 
@@ -139,12 +161,16 @@ class Universe {
                 {
                     for (var j = i + 1; j < celestialBodies.Count; ++j)
                     {                        
-                        ApplyGravityForces(celestialBodies[i], celestialBodies[j]);
+                        CalculateGravitationalForce(celestialBodies[i], celestialBodies[j]);
                     }
                     
                     Console.WriteLine(celestialBodies[i].formatOutputFile());
-                    output.Add(celestialBodies[i].formatOutputFile());
+                    
                 }
+
+                ApplyForceToBodies(celestialBodies);
+                output = WriteIterationBodies(output, celestialBodies);
+                CleanForces(celestialBodies);
 
                 Console.WriteLine("\n\n"); 
                 

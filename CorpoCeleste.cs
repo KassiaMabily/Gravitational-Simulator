@@ -11,6 +11,10 @@ class CelestialBody {
     private double velX;
     private double velY;
 
+    private double F;
+    private double Fx;
+    private double Fy;
+
 
     public CelestialBody(string n, float x, float y, float m, float r, float vx, float vy) {
         name = n;
@@ -54,6 +58,18 @@ class CelestialBody {
         return velY;
     }
 
+    public double getF() {
+        return F;
+    }
+
+    public double getFx() {
+        return Fx;
+    }
+
+    public double getFy() {
+        return Fy;
+    }
+
     public void setPosX(double x) {
         posX = x;
     }
@@ -70,8 +86,20 @@ class CelestialBody {
         velY = y;
     }
 
+    public void setF(double x) {
+        F = x;
+    }
+
+    public void setFx(double x) {
+        Fx = x;
+    }
+
+    public void setFy(double x) {
+        Fy = x;
+    }
+
     public string formatOutputFile() {
-        return String.Format("{0};{1};{2};{3};{4};{5};{5}", name, mass, radius, posX, posY, velX, velY);
+        return String.Format("{0};{1};{2};{3};{4};{5};{6}", name, mass, radius, posX, posY, velX, velY);
     }
 
     public void print() {
