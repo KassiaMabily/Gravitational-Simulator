@@ -1,0 +1,16 @@
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\bin\Debug\net5.0\Gravitational-Simulator.exe
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\bin\Debug\net5.0\Gravitational-Simulator.deps.json
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\bin\Debug\net5.0\Gravitational-Simulator.runtimeconfig.json
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\bin\Debug\net5.0\Gravitational-Simulator.runtimeconfig.dev.json
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\bin\Debug\net5.0\Gravitational-Simulator.dll
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\bin\Debug\net5.0\ref\Gravitational-Simulator.dll
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\bin\Debug\net5.0\Gravitational-Simulator.pdb
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\obj\Debug\net5.0\Gravitational-Simulator.csproj.AssemblyReference.cache
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\obj\Debug\net5.0\Gravitational-Simulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\obj\Debug\net5.0\Gravitational-Simulator.AssemblyInfoInputs.cache
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\obj\Debug\net5.0\Gravitational-Simulator.AssemblyInfo.cs
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\obj\Debug\net5.0\Gravitational-Simulator.csproj.CoreCompileInputs.cache
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\obj\Debug\net5.0\Gravitational-Simulator.dll
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\obj\Debug\net5.0\ref\Gravitational-Simulator.dll
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\obj\Debug\net5.0\Gravitational-Simulator.pdb
+C:\Users\ilha\Documents\Projetos\UCL\Gravitational-Simulator\obj\Debug\net5.0\Gravitational-Simulator.genruntimeconfig.cache

@@ -8,7 +8,7 @@ namespace Trabalho1
         {
             Universe universe = new Universe();
 
-            
+            universe.run();
         }
     }
 }

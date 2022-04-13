@@ -18,7 +18,7 @@ class Universe {
     /// Lê o arquivo de corpos celestes de inicialização do sistema de acordo com a quantidade máxima de corpos definida no arquivo
     /// </summary>
     /// <returns>Lista de corpos celeste</returns>
-    public List<CelestialBody> readCelestialBodies() 
+    public List<CelestialBody> ReadCelestialBodies() 
     {
         List<CelestialBody> celestialBodies = new List<CelestialBody>();
         string file = "inputBodies.txt";  
@@ -53,23 +53,17 @@ class Universe {
         return celestialBodies;
     }
 
-    public void saveCelestialBodies(List<CelestialBody> celestialBodies, int iteration)
+    public void SaveCelestialBodies(List<string> output)
     {
         string file = "outputBodies.txt"; 
 
         FileStream myFile = new FileStream(file, FileMode.Append, FileAccess.Write);
         StreamWriter sw = new StreamWriter(myFile, Encoding.UTF8);
 
-        if(iteration == 0)
+
+        foreach (var item in output)
         {
-            string firstLine = String.Format("{0};{1}", celestialBodies.Count, iteration);
-            sw.WriteLine(firstLine);
-        }
-
-
-        sw.WriteLine(String.Format("************ Interacao {0} ************", (iteration + 1)));
-        for(int i = 0; i < celestialBodies.Count; i++) {
-            sw.WriteLine(celestialBodies[i].formatOutputFile());
+            sw.WriteLine(item);
         }
 
         sw.Close();
@@ -115,8 +109,8 @@ class Universe {
         double rx = Math.Abs(body1.getPosX() - body2.getPosX());
         double ry = Math.Abs(body1.getPosY() - body2.getPosY());
 
-        double Fx = F * Math.Cos(r / rx);
-        double Fy = F * Math.Sin(r / ry);
+        double Fx = F * (rx / r);
+        double Fy = F * (ry / r);
 
         applyForce(body1, Fx, Fy);
         applyForce(body2, Fx * (-1), Fy * (-1));
@@ -125,21 +119,33 @@ class Universe {
 
     public void run() 
     {
-        List<CelestialBody> celestialBodies = readCelestialBodies();
+        List<CelestialBody> celestialBodies = ReadCelestialBodies();
+        List<string> output = new List<string>();
 
         if(celestialBodies.Count > 1) {
             for(int iteration = 0; iteration < numberIterations; iteration++) 
             {
+                output.Add(String.Format("** Interacao {0} ************", iteration ));
+                Console.WriteLine(String.Format("Iteração Nº {0}\n", iteration + 1));
+                
                 for (var i = 0; i < celestialBodies.Count; ++i)
                 {
                     for (var j = i + 1; j < celestialBodies.Count; ++j)
-                    {
+                    {                        
                         ApplyGravityForces(celestialBodies[i], celestialBodies[j]);
                     }
+                    
+                    Console.WriteLine(celestialBodies[i].formatOutputFile());
+                    output.Add(celestialBodies[i].formatOutputFile());
                 }
 
-                saveCelestialBodies(celestialBodies, iteration);
+                Console.WriteLine("\n\n");
+
+                
+                
             }
+
+            SaveCelestialBodies(output);
         }
     }
 

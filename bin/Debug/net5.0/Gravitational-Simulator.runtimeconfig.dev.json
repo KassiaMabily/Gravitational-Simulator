@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\ilha\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\ilha\\.nuget\\packages"
+    ]
+  }
+}
