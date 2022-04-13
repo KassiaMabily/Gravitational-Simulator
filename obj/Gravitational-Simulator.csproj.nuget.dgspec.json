@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\Gravitational-Simulator\\Gravitational-Simulator.csproj": {}
+    "D:\\Documentos\\Projetos\\Gravitational-Simulator\\Gravitational-Simulator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\Gravitational-Simulator\\Gravitational-Simulator.csproj": {
+    "D:\\Documentos\\Projetos\\Gravitational-Simulator\\Gravitational-Simulator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\Gravitational-Simulator\\Gravitational-Simulator.csproj",
+        "projectUniqueName": "D:\\Documentos\\Projetos\\Gravitational-Simulator\\Gravitational-Simulator.csproj",
         "projectName": "Gravitational-Simulator",
-        "projectPath": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\Gravitational-Simulator\\Gravitational-Simulator.csproj",
-        "packagesPath": "C:\\Users\\ilha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\Gravitational-Simulator\\obj\\",
+        "projectPath": "D:\\Documentos\\Projetos\\Gravitational-Simulator\\Gravitational-Simulator.csproj",
+        "packagesPath": "C:\\Users\\kassi\\.nuget\\packages\\",
+        "outputPath": "D:\\Documentos\\Projetos\\Gravitational-Simulator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ilha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kassi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }

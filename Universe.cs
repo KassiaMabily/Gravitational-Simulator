@@ -5,7 +5,7 @@ using System.Text;
 
 class Universe {
 
-    double G = 6.674184 * Math.Pow(10, -11);
+    double G = 6.67408 * Math.Pow(10, -11);
 
     private int numberCelestialBodies;
     private int numberIterations;
@@ -78,8 +78,8 @@ class Universe {
     
     public double calculateGravitationalForce(CelestialBody body1, CelestialBody body2) 
     {
-        double distanceEuclidienne = calculateEuclidienneDistance(body1, body2);
-        double force = G * ((body1.getMass() * body2.getMass()) / Math.Pow(distanceEuclidienne, 2));
+        double r = calculateEuclidienneDistance(body1, body2);
+        double force = (G * body1.getMass() * body2.getMass()) / Math.Pow(r, 2);
 
         return force;
     }
@@ -92,8 +92,8 @@ class Universe {
         double Vx = body.getVelX() + (Ax * time);
         double Vy = body.getVelY() + (Ay * time);
 
-        double Sx = body.getPosX() + body.getVelX() + ((Ax * Math.Pow(time, 2)) / 2);
-        double Sy = body.getPosY() + body.getVelY() + ((Ay * Math.Pow(time, 2)) / 2);
+        double Sx = body.getPosX() + (body.getVelX() * time) + ((Ax  / 2) * Math.Pow(time, 2));
+        double Sy = body.getPosY() + (body.getVelY() * time) + ((Ay / 2) * Math.Pow(time, 2));
         
         body.setPosX(Sx);
         body.setPosY(Sy);
@@ -106,10 +106,15 @@ class Universe {
         double F = calculateGravitationalForce(body1, body2);
 
         double r = calculateEuclidienneDistance(body1, body2);
-        double rx = Math.Abs(body1.getPosX() - body2.getPosX());
-        double ry = Math.Abs(body1.getPosY() - body2.getPosY());
+        double rx = (body1.getPosX() - body2.getPosX());
+        double ry = (body1.getPosY() - body2.getPosY());
 
-        double Fx = F * (rx / r);
+
+        // double Fx = F * Math.Cos( Math.Atan( (body1.getPosY() - body2.getPosY()) / ( body1.getPosX() - body2.getPosX()) ) );
+        // double Fy = F * Math.Sin( Math.Atan( (body1.getPosY() - body2.getPosY()) / ( body1.getPosX() - body2.getPosX()) ) );
+
+
+        double Fx =  F * (rx / r);
         double Fy = F * (ry / r);
 
         applyForce(body1, Fx, Fy);
@@ -122,11 +127,13 @@ class Universe {
         List<CelestialBody> celestialBodies = ReadCelestialBodies();
         List<string> output = new List<string>();
 
+        output.Add(String.Format("{0};{1}", celestialBodies.Count, numberIterations));
+
         if(celestialBodies.Count > 1) {
             for(int iteration = 0; iteration < numberIterations; iteration++) 
             {
                 output.Add(String.Format("** Interacao {0} ************", iteration ));
-                Console.WriteLine(String.Format("Iteração Nº {0}\n", iteration + 1));
+                Console.WriteLine(String.Format("Iteração Nº {0}\n", iteration));
                 
                 for (var i = 0; i < celestialBodies.Count; ++i)
                 {
@@ -139,9 +146,7 @@ class Universe {
                     output.Add(celestialBodies[i].formatOutputFile());
                 }
 
-                Console.WriteLine("\n\n");
-
-                
+                Console.WriteLine("\n\n"); 
                 
             }
 
