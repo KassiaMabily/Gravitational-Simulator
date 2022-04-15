@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\kassi\\.nuget\\packages\\": {}
+    "C:\\Users\\ilha\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documentos\\Projetos\\Gravitational-Simulator\\Gravitational-Simulator.csproj",
+      "projectUniqueName": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\Gravitational-Simulator\\Gravitational-Simulator.csproj",
       "projectName": "Gravitational-Simulator",
-      "projectPath": "D:\\Documentos\\Projetos\\Gravitational-Simulator\\Gravitational-Simulator.csproj",
-      "packagesPath": "C:\\Users\\kassi\\.nuget\\packages\\",
-      "outputPath": "D:\\Documentos\\Projetos\\Gravitational-Simulator\\obj\\",
+      "projectPath": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\Gravitational-Simulator\\Gravitational-Simulator.csproj",
+      "packagesPath": "C:\\Users\\ilha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\Gravitational-Simulator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kassi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ilha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
       }
     }
   }

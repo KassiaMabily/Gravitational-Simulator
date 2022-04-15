@@ -42,6 +42,10 @@ class CelestialBody {
         return mass;
     }
 
+    public double getRadius() {
+        return radius;
+    }
+
     public double getPosX() {
         return posX;
     }
