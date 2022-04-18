@@ -1,11 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    ".NETCoreApp,Version=v3.1": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    "net5.0": []
+    ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
     "C:\\Users\\ilha\\.nuget\\packages\\": {}
@@ -13,26 +13,26 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\Gravitational-Simulator\\Gravitational-Simulator.csproj",
-      "projectName": "Gravitational-Simulator",
-      "projectPath": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\Gravitational-Simulator\\Gravitational-Simulator.csproj",
+      "projectUniqueName": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\GUI-Gravitation-Simulator\\WinFormsApp1\\WinFormsApp1.csproj",
+      "projectName": "WinFormsApp1",
+      "projectPath": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\GUI-Gravitation-Simulator\\WinFormsApp1\\WinFormsApp1.csproj",
       "packagesPath": "C:\\Users\\ilha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\Gravitational-Simulator\\obj\\",
+      "outputPath": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\GUI-Gravitation-Simulator\\WinFormsApp1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ilha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0"
+        "netcoreapp3.1"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -43,8 +43,8 @@
       }
     },
     "frameworks": {
-      "net5.0": {
-        "targetAlias": "net5.0",
+      "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -58,6 +58,9 @@
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"

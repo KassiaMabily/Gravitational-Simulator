@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 
 
-class CelestialBody {
+class CelestialBody
+{
     private string name;
 
     private double posX;
@@ -16,7 +17,8 @@ class CelestialBody {
     private double Fy;
 
 
-    public CelestialBody(string n, float x, float y, float m, float r, float vx, float vy) {
+    public CelestialBody(string n, float x, float y, float m, float r, float vx, float vy)
+    {
         name = n;
         posX = x;
         posY = y;
@@ -26,7 +28,8 @@ class CelestialBody {
         velY = vy;
     }
 
-    public CelestialBody(string line) {
+    public CelestialBody(string line)
+    {
         string[] data = line.Split(";");
 
         name = data[0];
@@ -38,76 +41,94 @@ class CelestialBody {
         velY = double.Parse(data[6]);
     }
 
-    public double getMass() {
+    public double getMass()
+    {
         return mass;
     }
 
-    public double getRadius() {
-        return radius;
+    public double getRadius()
+    {
+        return 10;
     }
 
-    public double getPosX() {
+    public double getPosX()
+    {
         return posX;
     }
 
-    public double getPosY() {
+    public double getPosY()
+    {
         return posY;
     }
 
-    public double getVelX() {
+    public double getVelX()
+    {
         return velX;
     }
 
-    public double getVelY() {
+    public double getVelY()
+    {
         return velY;
     }
 
-    public double getF() {
+    public double getF()
+    {
         return F;
     }
 
-    public double getFx() {
+    public double getFx()
+    {
         return Fx;
     }
 
-    public double getFy() {
+    public double getFy()
+    {
         return Fy;
     }
 
-    public void setPosX(double x) {
+    public void setPosX(double x)
+    {
         posX = x;
     }
 
-    public void setPosY(double y) {
+    public void setPosY(double y)
+    {
         posY = y;
     }
 
-    public void setVelX(double x) {
+    public void setVelX(double x)
+    {
         velX = x;
     }
 
-    public void setVelY(double y) {
+    public void setVelY(double y)
+    {
         velY = y;
     }
 
-    public void setF(double x) {
+    public void setF(double x)
+    {
         F = x;
     }
 
-    public void setFx(double x) {
+    public void setFx(double x)
+    {
         Fx = x;
     }
 
-    public void setFy(double x) {
+    public void setFy(double x)
+    {
         Fy = x;
     }
 
-    public string formatOutputFile() {
+    public string formatOutputFile()
+    {
         return String.Format("{0};{1};{2};{3};{4};{5};{6}", name, mass, radius, posX, posY, velX, velY);
     }
 
-    public void print() {
+    public void print()
+    {
         Console.WriteLine(string.Format("Posição X: {0}\nPosição Y: {1}\nMassa: {2}", posX, posY, mass));
     }
-    
+
 }

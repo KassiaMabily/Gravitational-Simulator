@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-class Universe {
+class Universe
+{
 
     double G = 6.6740184 * Math.Pow(10, -11);
 
@@ -12,29 +13,31 @@ class Universe {
 
     private int time;
 
-    public Universe() {}
+    public Universe() { }
 
     /// <summary>
     /// Lê o arquivo de corpos celestes de inicialização do sistema de acordo com a quantidade máxima de corpos definida no arquivo
     /// </summary>
     /// <returns>Lista de corpos celeste</returns>
-    public List<CelestialBody> ReadCelestialBodies() 
+    public List<CelestialBody> ReadCelestialBodies()
     {
         List<CelestialBody> celestialBodies = new List<CelestialBody>();
-        string file = "inputBodies.txt";  
+        string file = "TextFile1.txt";
 
         // Verifica se o arquivo não existe, se não existir retorna uma quantidade vazia de corpos
-        if (!File.Exists(file)) { 
-            Console.WriteLine(String.Format("Arquivo {0} não existe", file)); 
+        if (!File.Exists(file))
+        {
+            Console.WriteLine(String.Format("Arquivo {0} não existe", file));
             return celestialBodies;
-        }  
+        }
 
-        string[] lines = File.ReadAllLines(file);  
+        string[] lines = File.ReadAllLines(file);
         int counter = 0;
         foreach (var line in lines)
-        {   
+        {
             // Se for a primeira linha, pega as informações iniciais de execução
-            if( counter == 0 ) {
+            if (counter == 0)
+            {
                 string[] data = line.Split(";");
 
                 numberCelestialBodies = int.Parse(data[0]);
@@ -42,7 +45,8 @@ class Universe {
                 time = int.Parse(data[1]);
             }
 
-            if( counter > 0 && counter <= numberCelestialBodies ) {
+            if (counter > 0 && counter <= numberCelestialBodies)
+            {
                 CelestialBody newCelestialBody = new CelestialBody(line);
                 celestialBodies.Add(newCelestialBody);
             }
@@ -59,7 +63,7 @@ class Universe {
     /// <param name="output">Lista de string de saída</params>
     public void SaveCelestialBodies(List<string> output)
     {
-        string file = "outputBodies.txt"; 
+        string file = "outputBodies.txt";
 
         FileStream myFile = new FileStream(file, FileMode.Open, FileAccess.Write);
         StreamWriter sw = new StreamWriter(myFile, Encoding.UTF8);
@@ -84,7 +88,7 @@ class Universe {
     /// <returns>Lista de saída atualizada</returns>
     public List<string> WriteIterationBodies(List<string> output, List<CelestialBody> bodies)
     {
-        foreach(var body in bodies)
+        foreach (var body in bodies)
         {
             output.Add(body.formatOutputFile());
         }
@@ -99,9 +103,9 @@ class Universe {
     /// <param name="body1">Primeiro corpo celeste</param>
     /// <param name="body2">Segundo corpo celeste</param>
     /// <returns>A distância entre os dois corpos</param>
-    public double CalculateEuclidienneDistance(CelestialBody body1, CelestialBody body2) 
+    public double CalculateEuclidienneDistance(CelestialBody body1, CelestialBody body2)
     {
-        return Math.Sqrt(Math.Pow((body1.getPosX() - body2.getPosX()), 2) + Math.Pow((body1.getPosY() - body2.getPosY()),2));
+        return Math.Sqrt(Math.Pow((body1.getPosX() - body2.getPosX()), 2) + Math.Pow((body1.getPosY() - body2.getPosY()), 2));
     }
 
 
@@ -110,7 +114,7 @@ class Universe {
     /// </summary>
     /// <param name="body1">Primeiro corpo celeste</param>
     /// <param name="body2">Segundo corpo celeste</param>
-    public void CalculateGravitationalForce(CelestialBody body1, CelestialBody body2) 
+    public void CalculateGravitationalForce(CelestialBody body1, CelestialBody body2)
     {
 
         double r = CalculateEuclidienneDistance(body1, body2);
@@ -120,18 +124,18 @@ class Universe {
         double ry = (body1.getPosY() - body2.getPosY());
 
 
-        double Fx =  F * (rx / r);
+        double Fx = F * (rx / r);
         double Fy = F * (ry / r);
 
 
         // Acumula as forças de todos os corpos celestes
-        body1.setF(body1.getF() + F);
-        body1.setFx(body1.getFx() + Fx);
-        body1.setFy(body1.getFy() + Fy);
+        body1.setF(body1.getF() + (F * (-1)));
+        body1.setFx(body1.getFx() + (Fx * (-1)));
+        body1.setFy(body1.getFy() + (Fy * (-1)));
 
-        body2.setF(body2.getF() + (F * (-1)));
-        body2.setFx(body2.getFx() + (Fx * (-1)));
-        body2.setFy(body2.getFy() + (Fy * (-1)));
+        body2.setF(body2.getF() + (F * (1)));
+        body2.setFx(body2.getFx() + (Fx * (1)));
+        body2.setFy(body2.getFy() + (Fy * (1)));
     }
 
 
@@ -140,13 +144,13 @@ class Universe {
     /// </summary>
     /// <param name="body1">Primeiro corpo celeste</param>
     /// <param name="body2">Segundo corpo celeste</param>
-    public void CalculateColision(CelestialBody body1, CelestialBody body2) 
+    public void CalculateColision(CelestialBody body1, CelestialBody body2)
     {
         double distance = CalculateEuclidienneDistance(body1, body2);
 
 
         // Verifica se houve colisao
-        if(distance < (body1.getRadius() + body2.getRadius()))
+        if (distance < (body1.getRadius() + body2.getRadius()))
         {
             double body_1_Vx = body1.getVelX();
             double body_1_Vy = body1.getVelY();
@@ -155,11 +159,11 @@ class Universe {
             double body_2_Vy = body1.getVelY();
 
             // Colisao Elastica
-            body1.setVelX(body_2_Vx);
-            body1.setVelY(body_2_Vy);
-
-            body2.setVelX(body_1_Vx);
-            body2.setVelY(body_1_Vy);
+            body1.setVelX(body_2_Vx * (-1));
+            body1.setVelY(body_2_Vy * (-1));
+             
+            body2.setVelX(body_1_Vx * (-1));
+            body2.setVelY(body_1_Vy * (-1));
 
             // Calcula novamente a posição dos corpos
             CalculateForce(body1);
@@ -180,41 +184,41 @@ class Universe {
         double Vx = body.getVelX() + (Ax * time);
         double Vy = body.getVelY() + (Ay * time);
 
-        double Sx = body.getPosX() + (body.getVelX() * time) + ((Ax  / 2) * Math.Pow(time, 2));
+        double Sx = body.getPosX() + (body.getVelX() * time) + ((Ax / 2) * Math.Pow(time, 2));
         double Sy = body.getPosY() + (body.getVelY() * time) + ((Ay / 2) * Math.Pow(time, 2));
-        
+
         body.setPosX(Sx);
         body.setPosY(Sy);
         body.setVelX(Vx);
         body.setVelY(Vy);
     }
 
-    
+
     /// <summary>
     /// Limpa a força de todos os corpos para a próxima iteração
     /// </summary>
     /// <param name="bodies">Lista de corpos celestes</param>
-    public void CleanForces(List<CelestialBody> bodies) 
+    public void CleanForces(List<CelestialBody> bodies)
     {
-        foreach(var body in bodies)
+        foreach (var body in bodies)
         {
             body.setF(0.0f);
             body.setFx(0.0f);
             body.setFy(0.0f);
-        } 
+        }
     }
-    
+
 
     /// <summary>
     /// Faz uma iteração entre todos os corpos celestes para calcular a aceleração, velocidade e posição
     /// </summary>
     /// <param name="bodies">Lista de corpos celestes</param>
-    public void ApplyForceToBodies(List<CelestialBody> bodies) 
+    public void ApplyForceToBodies(List<CelestialBody> bodies)
     {
-        foreach(var body in bodies)
+        foreach (var body in bodies)
         {
             CalculateForce(body);
-        } 
+        }
     }
 
 
@@ -222,15 +226,15 @@ class Universe {
     /// Faz uma iteração entre todos os corpos celestes para calcular a colisão entre eles
     /// </summary>
     /// <param name="bodies">Lista de corpos celestes</param>
-    public void ApplyColisionsToBodies(List<CelestialBody> bodies) 
+    public void ApplyColisionsToBodies(List<CelestialBody> bodies)
     {
 
         for (var i = 0; i < bodies.Count; ++i)
         {
             for (var j = i + 1; j < bodies.Count; ++j)
-            {                        
+            {
                 CalculateColision(bodies[i], bodies[j]);
-            }   
+            }
         }
     }
 
@@ -238,28 +242,29 @@ class Universe {
     /// <summary>
     /// Método principal para rodar o universo
     /// </summary>
-    public void run() 
+    public void Run()
     {
         List<CelestialBody> celestialBodies = ReadCelestialBodies();
         List<string> output = new List<string>();
 
         output.Add(String.Format("{0};{1}", celestialBodies.Count, numberIterations));
 
-        if(celestialBodies.Count > 1) {
-            for(int iteration = 0; iteration < numberIterations; iteration++) 
+        if (celestialBodies.Count > 1)
+        {
+            for (int iteration = 0; iteration < numberIterations; iteration++)
             {
-                output.Add(String.Format("** Interacao {0} ************", iteration ));
+                output.Add(String.Format("** Interacao {0} ************", iteration));
                 Console.WriteLine(String.Format("Iteração Nº {0}\n", iteration));
-                
+
                 for (var i = 0; i < celestialBodies.Count; ++i)
                 {
                     for (var j = i + 1; j < celestialBodies.Count; ++j)
-                    {                        
+                    {
                         CalculateGravitationalForce(celestialBodies[i], celestialBodies[j]);
                     }
-                    
+
                     Console.WriteLine(celestialBodies[i].formatOutputFile());
-                    
+
                 }
 
                 ApplyForceToBodies(celestialBodies);
@@ -270,8 +275,8 @@ class Universe {
 
                 CleanForces(celestialBodies);
 
-                Console.WriteLine("\n\n"); 
-                
+                Console.WriteLine("\n\n");
+
             }
 
             SaveCelestialBodies(output);
