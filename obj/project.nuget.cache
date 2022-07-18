@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wU3CUklHCORxg0yLrql45bJbZkoAeEcbSNo3aH+EjDHFK1/wG8oWdslf+mzmM94Wy5fI4HGfhcOGUDWa6ncmDw==",
+  "dgSpecHash": "9OmNAhkrKHpTHQDLaJs0dD07C3oet9KRH0sl6GolE9QfY5S+6o67zyqpxnH2JMdjpAMsgGol6ZvxVN5wu1L/rA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\GUI-Gravitation-Simulator\\WinFormsApp1\\WinFormsApp1.csproj",
+  "projectFilePath": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\Gravitational-Simulator\\WinFormsApp1.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

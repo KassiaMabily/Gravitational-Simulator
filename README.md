@@ -12,8 +12,14 @@
 </p>
 
 <h4 align="center">
-	🚧 Development 🚧
+	🚧 Finished 🚧
 </h4>
+
+<p align="center">
+  <kbd>
+    <img  style="border-radius: 5px" width="450" height="auto" src="./assets/demo.gif" alt="Intro">
+  </kbd>
+</p>
 
 ## 💻 Overview
 Simulador gravitacional 2D, que leia as informações dos corpos em um arquivo texto formatado, faça os cálculos necessários e grave os resultados em outro arquivo texto formatado.
@@ -84,7 +90,7 @@ $ git clone https://github.com/Gravitational-Simulator/app.git
             </a>
             <br/>
 
-[![Linkedin Badge](https://img.shields.io/badge/-Kassia-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/kassia-fraga-178b7b1a7/)](https://www.linkedin.com/in/kassia-fraga-178b7b1a7/) 
+[![Linkedin Badge](https://img.shields.io/badge/-Kassia-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/kassia-fraga-178b7b1a7/)](https://www.linkedin.com/in/kassia-fraga-178b7b1a7/)
 [<img src = "https://img.shields.io/badge/@kassia.mabily-%23E4405F.svg?&style=flat-square&logo=instagram&logoColor=white">](https://www.instagram.com/kassia.mabily/)
 [![Gmail Badge](https://img.shields.io/badge/-kassiafraga7@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:kassiafraga7@gmail.com)](mailto:kassiafraga7@gmail.com)
         </p>

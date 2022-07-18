@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\GUI-Gravitation-Simulator\\WinFormsApp1\\WinFormsApp1.csproj",
+      "projectUniqueName": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\Gravitational-Simulator\\WinFormsApp1.csproj",
       "projectName": "WinFormsApp1",
-      "projectPath": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\GUI-Gravitation-Simulator\\WinFormsApp1\\WinFormsApp1.csproj",
+      "projectPath": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\Gravitational-Simulator\\WinFormsApp1.csproj",
       "packagesPath": "C:\\Users\\ilha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\GUI-Gravitation-Simulator\\WinFormsApp1\\obj\\",
+      "outputPath": "C:\\Users\\ilha\\Documents\\Projetos\\UCL\\Gravitational-Simulator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ilha\\AppData\\Roaming\\NuGet\\NuGet.Config",
